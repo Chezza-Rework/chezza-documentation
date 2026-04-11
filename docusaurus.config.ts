@@ -44,7 +44,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/Chezza-Rework/chezza-documentation/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/Chezza-Rework/chezza-documentation/tree/main/',
         },
         blog: false,
         theme: {
