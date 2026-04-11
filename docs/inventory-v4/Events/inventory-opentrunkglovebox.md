@@ -5,7 +5,7 @@ sidebar_position: 7
 
 # inventory:openTrunkGlovebox
 
-:::info
+:::note
 clientside AND serverside
 :::
 

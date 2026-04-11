@@ -5,7 +5,7 @@ sidebar_position: 8
 
 # inventory:openCrafting
 
-:::info
+:::note
 clientside AND serverside
 :::
 

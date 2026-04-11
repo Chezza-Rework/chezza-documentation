@@ -5,7 +5,7 @@ sidebar_position: 9
 
 # inventory:openShop
 
-:::info
+:::note
 clientside AND serverside
 :::
 

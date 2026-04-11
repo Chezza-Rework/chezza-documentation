@@ -17,6 +17,6 @@ end)
 
 ```lua
 AddEventHandler("inventory:close", function()
-    print('Inventory closed by ID: ' .. source
+    print('Inventory closed by ID: ' .. source)
 end)
 ```

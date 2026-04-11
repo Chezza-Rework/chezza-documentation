@@ -5,7 +5,7 @@ sidebar_position: 11
 
 # inventory:openHouse
 
-:::info
+:::note
 clientside AND serverside
 :::
 

@@ -5,7 +5,7 @@ sidebar_position: 6
 
 # inventory:openPlayerInventory
 
-:::info
+:::note
 clientside AND serverside
 :::
 

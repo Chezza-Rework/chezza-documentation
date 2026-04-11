@@ -5,7 +5,7 @@ sidebar_position: 10
 
 # inventory:openStorage
 
-:::info
+:::note
 clientside AND serverside
 :::
 
