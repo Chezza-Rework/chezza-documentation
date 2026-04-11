@@ -15,7 +15,7 @@ function Hero() {
     <header className={styles.hero}>
       <div className={styles.heroInner}>
         <img
-          src="/chezza-docs/img/logo.png"
+          src="img/logo.png"
           alt="Chezza Logo"
           className={styles.heroLogo}
         />
@@ -53,7 +53,7 @@ type Resource = {
 const resources: Resource[] = [
   {
     title: 'Inventory v4',
-    image: '/chezza-docs/img/inventory.png',
+    image: '/img/inventory.png',
     badge: 'ESX Legacy',
     description:
       'A feature-rich inventory system with support for stashes, trunks, gloveboxes, shops, crafting and more.',
@@ -62,7 +62,7 @@ const resources: Resource[] = [
   },
   {
     title: 'Phone v2',
-    image: '/chezza-docs/img/phone.png',
+    image: '/img/phone.png',
     badge: 'ESX',
     description:
       'A modern in-game smartphone with contacts, dispatch, notifications, custom ringtones and backgrounds.',

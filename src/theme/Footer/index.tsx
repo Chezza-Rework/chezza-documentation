@@ -13,14 +13,6 @@ const columns = [
     ],
   },
   {
-    title: 'Documentation',
-    links: [
-      { label: 'Events', to: '/docs/inventory-v4/Events/inventory-openinventory' },
-      { label: 'Exports', to: '/docs/inventory-v4/Exports/additemtoplayer' },
-      { label: 'Getting Started', to: '/docs' },
-    ],
-  },
-  {
     title: 'Community',
     links: [
       { label: 'Dashboard', to: 'https://www.chezza.dev' },
@@ -40,7 +32,7 @@ export default function Footer(): ReactNode {
         <div className={styles.brand}>
           <Link to="/" className={styles.brandLink}>
             <img
-              src="/chezza-docs/img/logo.png"
+              src="/img/logo.png"
               alt="Chezza Logo"
               className={styles.brandLogo}
             />
