@@ -58,7 +58,9 @@ const config: Config = {
     // Replace with your project's social card
     image: 'img/chezza-social-card.jpg',
     colorMode: {
-      respectPrefersColorScheme: true,
+      defaultMode: 'dark',
+      disableSwitch: true,
+      respectPrefersColorScheme: false,
     },
     navbar: {
       title: 'Chezza Documentation',
