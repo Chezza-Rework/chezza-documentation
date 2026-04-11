@@ -1,27 +1,37 @@
-import type {ReactNode} from 'react';
+import type { ReactNode } from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
-import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import Heading from '@theme/Heading';
 
 import styles from './index.module.css';
 
-function HomepageHeader() {
-  const {siteConfig} = useDocusaurusContext();
+// ─── Hero ────────────────────────────────────────────────────────────────────
+
+function Hero() {
+  const { siteConfig } = useDocusaurusContext();
   return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
-      <div className="container">
-        <Heading as="h1" className="hero__title">
+    <header className={styles.hero}>
+      <div className={styles.heroInner}>
+        <img
+          src="/chezza-docs/img/logo.png"
+          alt="Chezza Logo"
+          className={styles.heroLogo}
+        />
+        <Heading as="h1" className={styles.heroTitle}>
           {siteConfig.title}
         </Heading>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <div className={styles.buttons}>
+        <p className={styles.heroSubtitle}>{siteConfig.tagline}</p>
+        <div className={styles.heroButtons}>
+          <Link className="button button--primary button--lg" to="/docs">
+            Browse Docs
+          </Link>
           <Link
             className="button button--secondary button--lg"
-            to="/docs">
-            Docusaurus Tutorial - 5min ⏱️
+            href="https://discord.com/invite/Cm9NNk2486"
+          >
+            Discord
           </Link>
         </div>
       </div>
@@ -29,15 +39,137 @@ function HomepageHeader() {
   );
 }
 
+// ─── Resource Cards ───────────────────────────────────────────────────────────
+
+type Resource = {
+  title: string;
+  image: string;
+  description: string;
+  badge: string;
+  to: string;
+  features: string[];
+};
+
+const resources: Resource[] = [
+  {
+    title: 'Inventory v4',
+    image: '/chezza-docs/img/inventory.png',
+    badge: 'ESX Legacy',
+    description:
+      'A feature-rich inventory system with support for stashes, trunks, gloveboxes, shops, crafting and more.',
+    to: '/docs/inventory-v4/getting-started',
+    features: ['Events', 'Exports', 'Event Handler'],
+  },
+  {
+    title: 'Phone v2',
+    image: '/chezza-docs/img/phone.png',
+    badge: 'ESX',
+    description:
+      'A modern in-game smartphone with contacts, dispatch, notifications, custom ringtones and backgrounds.',
+    to: '/docs/phone-v2/getting-started',
+    features: ['Events', 'Exports'],
+  },
+];
+
+function ResourceCard({ title, image, badge, description, to, features }: Resource) {
+  return (
+    <div className={styles.card}>
+      <div className={styles.cardImage}>
+        <img src={image} alt={title} />
+      </div>
+      <div className={styles.cardBody}>
+        <div className={styles.cardHeader}>
+          <Heading as="h2" className={styles.cardTitle}>
+            {title}
+          </Heading>
+          <span className={styles.cardBadge}>{badge}</span>
+        </div>
+        <p className={styles.cardDescription}>{description}</p>
+        <div className={styles.cardTags}>
+          {features.map((f) => (
+            <span key={f} className={styles.cardTag}>
+              {f}
+            </span>
+          ))}
+        </div>
+      </div>
+      <div className={styles.cardFooter}>
+        <Link className="button button--primary button--block" to={to}>
+          Get Started →
+        </Link>
+      </div>
+    </div>
+  );
+}
+
+function Resources() {
+  return (
+    <section className={styles.resources}>
+      <div className="container">
+        <Heading as="h2" className={styles.sectionTitle}>
+          Resources
+        </Heading>
+        <p className={styles.sectionSubtitle}>
+          Select a resource to browse its documentation.
+        </p>
+        <div className={styles.cardGrid}>
+          {resources.map((r) => (
+            <ResourceCard key={r.title} {...r} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── Info Banner ──────────────────────────────────────────────────────────────
+
+function InfoBanner() {
+  return (
+    <section className={styles.infoBanner}>
+      <div className="container">
+        <div className={styles.infoBannerInner}>
+          <div className={styles.infoBannerText}>
+            <Heading as="h3">Need help?</Heading>
+            <p>
+              Join the Chezza Discord for support, updates and community discussions.
+              This is an unofficial documentation — for official support always use
+              the Discord server.
+            </p>
+          </div>
+          <div className={styles.infoBannerActions}>
+            <Link
+              className="button button--primary button--lg"
+              href="https://discord.com/invite/Cm9NNk2486"
+            >
+              Join Discord
+            </Link>
+            <Link
+              className="button button--secondary button--lg"
+              href="https://www.chezza.dev"
+            >
+              Dashboard
+            </Link>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── Page ─────────────────────────────────────────────────────────────────────
+
 export default function Home(): ReactNode {
-  const {siteConfig} = useDocusaurusContext();
+  const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
-      <HomepageHeader />
+      title={siteConfig.title}
+      description="Unofficial documentation for Chezza Studios FiveM resources."
+    >
+      <Hero />
       <main>
-        <HomepageFeatures />
+        <Resources />
+        <InfoBanner />
       </main>
     </Layout>
   );
