@@ -32,7 +32,7 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           port: ${{ secrets.FTP_PORT }}
           source: "build/*"
-          target: "/var/www/html/chezza-docs/"
+          target: "/var/www/html/docs_chezza/"
           strip_components: 1
 
       - name: 🛠️ Setze Datei-Besitzer auf www-data
@@ -43,4 +43,4 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           port: ${{ secrets.FTP_PORT }}
           script: |
-            chown -R www-data:www-data /var/www/html/chezza-docs/
+            chown -R www-data:www-data /var/www/html/docs_chezza/
