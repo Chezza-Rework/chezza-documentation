@@ -1,20 +1,27 @@
-name: Deploy Docusaurus to Webserver
+name: Deploy Chezza Docs
 
 on:
   push:
     branches:
       - main
 
+# SECURITY: GITHUB_TOKEN auf Minimum beschränken
+permissions:
+  contents: read
+
 jobs:
   build-and-deploy:
+    name: Build & Deploy
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: ⬇️ Checkout Repository
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - uses: actions/setup-node@v4
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: yarn
@@ -26,7 +33,7 @@ jobs:
         run: yarn build
 
       - name: 🚀 Deploy to Server via SCP
-        uses: appleboy/scp-action@v0.1.7
+        uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
@@ -44,24 +51,4 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.FTP_PORT }}
           script: |
-            # Datei-Besitzer setzen
             chown -R www-data:www-data /var/www/html/docs_chezza/
-
-            # mod_headers aktivieren (falls noch nicht aktiv)
-            a2enmod headers
-
-            # Security-Header via .htaccess setzen
-            cat > /var/www/html/docs_chezza/.htaccess << 'EOF'
-            <IfModule mod_headers.c>
-                Header always set X-Frame-Options "SAMEORIGIN"
-                Header always set X-Content-Type-Options "nosniff"
-                Header always set X-XSS-Protection "1; mode=block"
-                Header always set Referrer-Policy "strict-origin-when-cross-origin"
-                Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
-                Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
-                Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self'; frame-ancestors 'none';"
-            </IfModule>
-            EOF
-
-            # Apache2 Konfiguration testen und neu laden
-            apachectl configtest && systemctl reload apache2
