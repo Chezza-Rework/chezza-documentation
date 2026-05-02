@@ -25,6 +25,7 @@ const config: Config = {
   },
 
   plugins: [
+    ['docusaurus-lunr-search', {}],
     [
       '@docusaurus/plugin-content-docs',
       {
@@ -120,10 +121,14 @@ const config: Config = {
               label: 'Discord',
               href: 'https://discord.com/invite/Cm9NNk2486',
             },
+            {
+              label: 'Github',
+              href: 'https://github.com/Chezza-Rework',
+            },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Chezza Rework`,
+      copyright: `Copyright © ${new Date().getFullYear()} Chezza Rework. All rights reserved.`,
     },
     prism: {
       theme: prismThemes.github,

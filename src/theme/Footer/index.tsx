@@ -17,6 +17,7 @@ const columns = [
     links: [
       { label: 'Dashboard', to: 'https://www.chezza.dev' },
       { label: 'Discord', to: 'https://discord.com/invite/Cm9NNk2486' },
+      { label: 'Github', to: 'https://github.com/Chezza-Rework' },
     ],
   },
 ];

@@ -62,7 +62,7 @@ const resources: Resource[] = [
   {
     title: 'Phone v2',
     image: '/img/phone.png',
-    badge: 'ESX',
+    badge: 'ESX Legacy',
     description:
       'A modern in-game smartphone with contacts, dispatch, notifications, custom ringtones and backgrounds.',
     to: '/docs/phone-v2/getting-started',
