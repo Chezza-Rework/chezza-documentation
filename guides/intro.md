@@ -3,7 +3,7 @@ sidebar_position: 1
 slug: /
 ---
 
-# Guides
+# Welcome to Guides Section
 
 Welcome to the Guides section of the Chezza Documentation.
 
