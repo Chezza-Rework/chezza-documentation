@@ -44,7 +44,7 @@ jobs:
           strip_components: 1
 
       - name: 🛠️ Post-Deploy Setup (Permissions & Security Headers)
-        uses: appleboy/ssh-action@v1.0.3
+        uses: appleboy/ssh-action@v1.2.5
         with:
           host: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
