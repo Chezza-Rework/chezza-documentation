@@ -41,7 +41,7 @@
     "serialize-javascript": "^7.0.5",
     "follow-redirects": "^1.16.0",
     "@babel/plugin-transform-modules-systemjs": "^7.29.4",
-    "brace-expansion": "^1.1.16",
+    "brace-expansion": "file:./patches/brace-expansion-compat",
     "qs": "^6.15.3",
     "**/sockjs/uuid": "^11.1.1",
     "**/webpack-bundle-analyzer/ws": "^7.5.11",
