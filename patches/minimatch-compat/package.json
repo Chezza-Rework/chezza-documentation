@@ -1,0 +1,16 @@
+{
+  "name": "minimatch-compat",
+  "version": "3.1.6",
+  "description": "CommonJS compat shim: serves minimatch 10 under the callable minimatch@3 API, so the tree can drop the unpatchable brace-expansion 1.x.",
+  "license": "ISC",
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "dependencies": {
+    "minimatch-modern": "npm:minimatch@^10.2.5"
+  },
+  "engines": {
+    "node": ">=20.0"
+  }
+}
